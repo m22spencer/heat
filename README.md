@@ -4,7 +4,7 @@
 
 
 
-# Sample flycheck elisp
+## Sample flycheck elisp
 ```
 (require 'flycheck)
 
