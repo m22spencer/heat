@@ -1,4 +1,4 @@
-package com.codex.__heat;
+package __heat;
 
 import haxe.macro.*;
 
