@@ -7,7 +7,7 @@ class TestAll {
     var r = new haxe.unit.TestRunner();
     r.add (new TestAutoMake());
     r.add (new TestCompletion());
-    r.run();
+    Sys.exit (r.run() ? 0 : 1);
   }
 }
 
