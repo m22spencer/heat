@@ -12,8 +12,8 @@ class TestAll {
 }
 
 class TestUtils {
-  public static var testDir = Sys.getCwd() + 'Heat/test';
-  public static var emBin   = Sys.getCwd() + 'run.n';
+  public static var testDir = Sys.getCwd() + '/Heat/test';
+  public static var emBin   = Sys.getCwd() + '/run.n';
   public static function check(target:String, ?remaps) {
     return run (["--target-hx", target
                  , "--syntax-check"], remaps);
