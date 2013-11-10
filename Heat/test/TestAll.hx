@@ -35,7 +35,7 @@ class TestUtils {
       map = map.concat(["--remap", r.key, r.val]);
 
     var proc = new sys.io.Process('neko',
-                                  [emBin].concat(map).concat(args));
+                                  [emBin].concat(map).concat(args).concat(['.']));
     var ec = proc.exitCode();
     return { exitCode: ec
            , stderr: proc.stderr.readAll().toString()
