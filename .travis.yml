@@ -15,6 +15,8 @@ before_script:
  
 # Run the test!
 script:
-  - haxelib install BuildLibs.hxml
+  - haxelib install mcli 0.1.2-beta
+  - haxelib install Parsex 1.4.0
+  - haxelib install monax 1.4.0
   - haxe BuildLib.hxml --no-output
   - haxe RunTests.hxml

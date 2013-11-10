@@ -1,6 +1,6 @@
 -cp Heat/src
 -neko run.n
 -main Main
--lib mcli
--lib Parsex
+-lib mcli:0.1.2-beta
+-lib Parsex:1.4.0
 -lib monax:1.4.0
