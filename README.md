@@ -18,11 +18,7 @@
             "--remap" source-original source
             "--syntax-check"
             "--target-hx" source-original
-            (option "--project-file" flycheck-haxe-hxml)
-            ;;(option "--server-port" flycheck-haxe-server)
-            ;;(option "--hxml" flycheck-haxe-hxml)
-            ;;(option "--openfl" flycheck-haxe-openfl))
-            )
+            (option "--project-file" flycheck-haxe-hxml))
 
   :error-patterns
   ((warning line-start (file-name) ":" line ": "
