@@ -17,8 +17,6 @@ class Main extends mcli.CommandLine {
   /** This should be the path of the file that the user is currently editing.
       It does not matter if this file exists, as it's purely used for reconstruting
       paths.
-      You *must* provide a remap for this file, either by stdin or --remap. You may
-      remap a file to itself. This file will not be modified.
   **/
   public var targetHx:String;
 
@@ -94,7 +92,7 @@ class Main extends mcli.CommandLine {
       if (projectFile != null) {
         if (projectFile.endsWith (".hxml")) EUtils.hxmlArgs (toFilePath (projectFile));
         else if (projectFile.endsWith (".nmml")) throw "Neko is not yet supported";
-        else if (projectFile.endsWith (".hxml")) throw "openfl is not yet supported";
+        else if (projectFile.endsWith (".xml")) throw "openfl is not yet supported";
         else throw 'Unkown project file: $projectFile';
       } else EUtils.auto (toFilePath (targetHx), map, temp);
 

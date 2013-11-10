@@ -26,7 +26,7 @@ class Complete {
     var out = Utils.exec("haxe", args);
     var lines = out.stderr.split("\n");
 
-    try {
+    return try {
       var xml = Xml.parse(Utils.unlines(lines)).elementsNamed("list").next();
       var is = [for (x in xml.elementsNamed("i")) x];
       var data = is.map(function (i) {
@@ -39,11 +39,11 @@ class Complete {
         });
       var json = haxe.Json.stringify (data);
       Sys.stderr().writeString(json);
+      0;
     } catch (e:Dynamic) {
       Sys.stderr().writeString('[]');
+      1;
     }
-
-    return out.exitCode;
   }
 
   public static function doToplevelComplete() {
