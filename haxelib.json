@@ -1,0 +1,15 @@
+{
+    "name": "heat",
+    "url" : "https://github.com/m22spencer/heat",
+    "license": "MIT",
+    "tags": [],
+    "description": "heat - Haxe Editor AssistanT",
+    "version": "0.0.1",
+    "releasenote": "Initial",
+    "contributors": [ "m22spencer" ],
+    "dependencies": {
+        "monax": "1.4.0",
+        "Parsex": "1.4.0",
+        "mcli": "0.1.2-beta"
+    }
+}

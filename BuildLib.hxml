@@ -1,0 +1,6 @@
+-cp Heat/src
+-neko run.n
+-main Main
+-lib mcli
+-lib Parsex
+-lib monax:1.4.0

@@ -1,0 +1,2 @@
+-cp Heat/test
+--run TestAll
