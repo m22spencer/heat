@@ -27,6 +27,10 @@ class Main extends mcli.CommandLine {
    **/
   public var filesStdin:Bool;
 
+  /** Use the haxe completion server running locally on this port
+   **/
+  public var server:Null<Int>;
+
   var remaps:Array<{orig:String, temp:String}>;
   
   /** Any remapped file will use `orig` for the error line reporting, and `temp` for
@@ -87,6 +91,7 @@ class Main extends mcli.CommandLine {
     var temp = EUtils.mkTempDir ();
     var map  = EUtils.shadowFiles (temp, allmap);
 
+    var serv_args = if (server == null) [] else ["--connect", '$server'];
     var temp_args = ["-cp", fromDirPath (temp)];
     var proj_args =
       if (projectFile != null) {
@@ -96,7 +101,7 @@ class Main extends mcli.CommandLine {
         else throw 'Unkown project file: $projectFile';
       } else EUtils.auto (toFilePath (targetHx), map, temp);
 
-    var exitCode = f({ args   : proj_args.concat (temp_args)
+    var exitCode = f({ args   : serv_args.concat (proj_args.concat (temp_args))
                      , map    : map
                      , tempDir: temp
                      });
