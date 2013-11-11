@@ -1,8 +1,8 @@
 * Toplevel completions
+** Ensure that imported fields are properly listed
 * Separate .| and (| completions. Doesn't make sense to have these as the same --complete call
 * Add function that jumps to the next valid point where a `.` may be inserted. (Required for --type/--find-declaration)
 * Add --compile
 * Add --type, probably by `expression.getType()` + using
 * Finish up --find-declaration
 * Add --find-usages
-* Re-add completion server
