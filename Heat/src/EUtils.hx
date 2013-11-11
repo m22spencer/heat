@@ -11,17 +11,17 @@ using StringTools;
 @:publicFields
 class EUtils {
   static var errline = ~/(.*?):([0-9]+):(.*)/g;
-  /** Convert any string `s` to unix line endings
+  /** Convert any string `s` to LF line endings
    **/
-  static function convertEndings(s:String) {
-    return s;
+  static function toLF(s:String) {
+    return Utils.unlines(Utils.lines(s));
   }
     
-  static function shadowFile(file:FilePath, tempDir:DirPath, source:String, convert:Bool) {
+  static function shadowFile(file:FilePath, tempDir:DirPath, source:String) {
     var fileN = baseName (file);
     var tempFile = joinAsFile (tempDir, Parse.readPackage (source).concat([fromFilePath (fileN)]));
     makeDirectory (directory (tempFile));
-    writeContents (tempFile, convert?(convertEndings(source)):source);
+    writeContents (tempFile, source);
     return {key: file, val: tempFile};
   }
 
@@ -97,7 +97,7 @@ class EUtils {
   static function shadowFiles(temp:DirPath, kv:KVList<String, String>) {
     var tempDir = temp;
     var flat = [for (v in kv)
-        shadowFile (toFilePath (v.key), tempDir, v.val, false)];
+        shadowFile (toFilePath (v.key), tempDir, v.val)];
     return kvToRemap (flat);
   }
 
