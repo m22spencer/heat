@@ -15,7 +15,7 @@ class Complete {
       writeContents(temp, source);
     }
 
-    var source = readContents (temp).lines().unlines();
+    var source = readContents (temp);
     source = source.substr(0, pos) + "|" + source.substr(pos);
     writeContents(temp, source);
     
