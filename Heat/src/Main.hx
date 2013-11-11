@@ -55,7 +55,7 @@ class Main extends mcli.CommandLine {
   /** Return completions for the `.` or `(` at `pos`, where `pos` is measured in bytes when `charPos == false`
       and characters when `charPos == true`.
 
-      It is always safe to read a list of completions from `stdout`.
+      It is always safe to read a list of completions from `stderr`. `[]` will be returned on a failed complete.
 
       ExitCode is 0 for successful completion, and 1 for failed completion.
   **/

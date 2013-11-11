@@ -11,7 +11,7 @@ class Complete {
 
     //Repair position if requested (Treat all linebreaks as a single character)
     if (charPos) {
-      var source = readContents (temp).lines().unlines();
+      var source = EUtils.toLF (readContents (temp));
       writeContents(temp, source);
     }
 
@@ -35,7 +35,10 @@ class Complete {
             return i.elementsNamed(name).next().firstChild().toString().htmlUnescape().htmlUnescape();
           var t = getText("t");
           var d = getText("d");
-          return {name:n, type:t, description:d.lines().unlines()}; //Ensure that all descriptions use LF, not CRLF
+          return { name:n
+                 , type:t
+                 , description: EUtils.toLF(d) //Ensure that all descriptions use LF, not CRLF
+                 }
         });
       var json = haxe.Json.stringify (data);
       Sys.stderr().writeString(json);

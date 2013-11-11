@@ -11,7 +11,7 @@ class FindDeclaration {
 
     //Repair position if requested (Treat all linebreaks as a single character)
     if (charPos) {
-      var source = readContents (temp).lines().unlines();
+      var source = EUtils.toLF (readContents (temp));
       
       writeContents(temp, source);
     }
