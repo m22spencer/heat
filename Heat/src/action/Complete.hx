@@ -35,7 +35,7 @@ class Complete {
             return i.elementsNamed(name).next().firstChild().toString().htmlUnescape().htmlUnescape();
           var t = getText("t");
           var d = getText("d");
-          return {name:n, type:t, description:d};
+          return {name:n, type:t, description:d.lines().unlines()}; //Ensure that all descriptions use LF, not CRLF
         });
       var json = haxe.Json.stringify (data);
       Sys.stderr().writeString(json);
