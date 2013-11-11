@@ -1,0 +1,2 @@
+# Prevent git from mucking with line endings
+* -text
